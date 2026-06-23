@@ -1,18 +1,19 @@
 #include "imagem.h"
 #include <iostream>
 #include <fstream>
+#define uc unsigned char
 
 using namespace std;
 
-Imagem::Imagem(int a, int l) {
-    alocar(a, l);
+Imagem::Imagem(int l, int a) {
+    alocar(l, a);
 }
 
 Imagem::~Imagem() {
     delete[] matriz;
 }
 
-void Imagem::alocar(int a, int l) {
+void Imagem::alocar(int l, int a) {
     altura = a;
     largura = l;
     delete[] matriz;
@@ -54,7 +55,7 @@ bool Imagem::lerPPM(const string& caminho) {
 
     string identificador;
     int largura, altura, maxVal;
-    unsigned char r, g, b;
+    int r, g, b;
 
     arquivo >> identificador >> largura >> altura >> maxVal;
     alocar(largura, altura);
@@ -62,8 +63,29 @@ bool Imagem::lerPPM(const string& caminho) {
     for (int y = 0; y < altura; y++) {
         for (int x = 0; x < largura; x++) {
             arquivo >> r >> g >> b;
-            definirPixel(x, y, r, g, b);
+            cout << x << y << r << g << b << endl;
+            definirPixel(x, y, (uc)r, (uc)g, (uc)b);
         }
+    }
+
+    arquivo.close();
+    return true;
+}
+
+bool Imagem::salvarPPM(const string& caminho) {
+    ofstream arquivo(caminho);
+    if (!arquivo.is_open()) {
+        cout << "Erro de abertura" << endl;
+        return false;
+    }
+
+    arquivo << "P3" << endl << largura << " " << altura << endl << maxVal << endl;
+    for (int y = 0; y < altura; y++) {
+        for (int x = 0; x < largura; x++) {
+            Pixel& pixel = obterPixel(x, y); 
+            arquivo << (int)(pixel.r) << " " << (int)(pixel.g) << " " << (int)(pixel.b) << endl;
+        }
+        // arquivo << endl;
     }
 
     arquivo.close();

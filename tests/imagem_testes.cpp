@@ -24,7 +24,7 @@ TEST_CASE("Testa a modificação e acesso aos pixels da imagem") {
 
 TEST_CASE("Testa a leitura de uma imagem em formato PPM") {
     Imagem img;
-    bool sucesso = img.lerPPM("imagem.ppm");
+    bool sucesso = img.lerPPM("data/imagem.ppm");
     CHECK(sucesso);
     CHECK(img.obterLargura() == 3);
     CHECK(img.obterAltura() == 2);
@@ -50,36 +50,36 @@ TEST_CASE("Testa a leitura de uma imagem em formato PPM") {
     CHECK(p4.b == 255);
 }
 
-// TEST_CASE("Testa a salvamento da imagem em formato PPM") {
-//     Imagem img(2, 2);
-//     img(0, 0) = {255, 0, 0};   // vermelho
-//     img(1, 0) = {0, 255, 0};   // verde
-//     img(0, 1) = {0, 0, 255};   // azul
-//     img(1, 1) = {255, 255, 0}; // amarelo
+TEST_CASE("Testa a salvamento da imagem em formato PPM") {
+    Imagem img(2, 2);
+    img(0, 0) = {255, 0, 0};   // vermelho
+    img(1, 0) = {0, 255, 0};   // verde
+    img(0, 1) = {0, 0, 255};   // azul
+    img(1, 1) = {255, 255, 0}; // amarelo
 
-//     bool sucesso = img.salvarPPM("teste.ppm");
-//     CHECK(sucesso);
+    bool sucesso = img.salvarPPM("data/teste.ppm");
+    CHECK(sucesso);
 
-//     // Verifica se o arquivo foi criado corretamente
-//     std::ifstream arquivo("teste.ppm");
-//     CHECK(arquivo.is_open());
+    // Verifica se o arquivo foi criado corretamente
+    std::ifstream arquivo("data/teste.ppm");
+    CHECK(arquivo.is_open());
 
-//     std::string conteudo;
-//     std::getline(arquivo, conteudo);
-//     CHECK(conteudo == "P3");
-//     std::getline(arquivo, conteudo);
-//     CHECK(conteudo == "2 2");
-//     std::getline(arquivo, conteudo);
-//     CHECK(conteudo == "255");
+    std::string conteudo;
+    std::getline(arquivo, conteudo);
+    CHECK(conteudo == "P3");
+    std::getline(arquivo, conteudo);
+    CHECK(conteudo == "2 2");
+    std::getline(arquivo, conteudo);
+    CHECK(conteudo == "255");
 
-//     std::getline(arquivo, conteudo);
-//     CHECK(conteudo == "255 0 0");
-//     std::getline(arquivo, conteudo);
-//     CHECK(conteudo == "0 255 0");
-//     std::getline(arquivo, conteudo);
-//     CHECK(conteudo == "0 0 255");
-//     std::getline(arquivo, conteudo);
-//     CHECK(conteudo == "255 255 0");
+    std::getline(arquivo, conteudo);
+    CHECK(conteudo == "255 0 0");
+    std::getline(arquivo, conteudo);
+    CHECK(conteudo == "0 255 0");
+    std::getline(arquivo, conteudo);
+    CHECK(conteudo == "0 0 255");
+    std::getline(arquivo, conteudo);
+    CHECK(conteudo == "255 255 0");
 
-//     arquivo.close();
-// }
+    arquivo.close();
+}

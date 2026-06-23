@@ -7,7 +7,8 @@
 class Imagem {
     int largura;
     int altura;
-    Pixel *matriz;
+    Pixel *matriz = nullptr;
+    int maxVal = 255;
 
 public:
     Imagem(int a=0, int l=0);
@@ -22,6 +23,7 @@ public:
     Pixel& operator()(int x, int y);
     const Pixel& operator()(int x, int y) const;
     bool lerPPM(const std::string& caminho);
+    bool salvarPPM(const std::string& caminho);
 };
 
 #endif
