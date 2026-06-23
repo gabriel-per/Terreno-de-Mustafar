@@ -2,9 +2,9 @@
 #define __PIXEL
 
 struct Pixel {
-    unsigned char R;
-    unsigned char G;
-    unsigned char B;
+    unsigned char r;
+    unsigned char g;
+    unsigned char b;
     // unsigned char é o tipo inteiro mais econômico para esse uso
 };
 
