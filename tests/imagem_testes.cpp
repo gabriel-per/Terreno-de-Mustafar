@@ -24,7 +24,7 @@ TEST_CASE("Testa a modificação e acesso aos pixels da imagem") {
 
 TEST_CASE("Testa a leitura de uma imagem em formato PPM") {
     Imagem img;
-    bool sucesso = img.lerPPM("data/imagem.ppm");
+    bool sucesso = img.lerPPM("data/imagens/imagem.ppm");
     CHECK(sucesso);
     CHECK(img.obterLargura() == 3);
     CHECK(img.obterAltura() == 2);
@@ -57,11 +57,11 @@ TEST_CASE("Testa a salvamento da imagem em formato PPM") {
     img(0, 1) = {0, 0, 255};   // azul
     img(1, 1) = {255, 255, 0}; // amarelo
 
-    bool sucesso = img.salvarPPM("data/teste.ppm");
+    bool sucesso = img.salvarPPM("data/imagens/teste.ppm");
     CHECK(sucesso);
 
     // Verifica se o arquivo foi criado corretamente
-    std::ifstream arquivo("data/teste.ppm");
+    std::ifstream arquivo("data/imagens/teste.ppm");
     CHECK(arquivo.is_open());
 
     std::string conteudo;

@@ -16,10 +16,12 @@ public:
 
     void alocar(int a, int l);
     Pixel& obterPixel(int x, int y);
+    Pixel& obterPixel(int i);
     const Pixel& obterPixel(int x, int y) const;
     int obterAltura();
     int obterLargura();
     void definirPixel(int x, int y, unsigned char R, unsigned char G, unsigned char B);
+    void definirPixel(int i, unsigned char R, unsigned char G, unsigned char B);
     Pixel& operator()(int x, int y);
     const Pixel& operator()(int x, int y) const;
     bool lerPPM(const std::string& caminho);

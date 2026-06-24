@@ -4,7 +4,7 @@
 #include "../pixel.h"
 
 TEST_CASE("Teste de leitura de arquivo para paleta") {
-    Paleta paleta{"./palette.txt"};
+    Paleta paleta{"data/paletas/palette.txt"};
     CHECK(paleta.color_at_index(1).r == 172);
     CHECK(paleta.color_at_index(1).g == 208);
     CHECK(paleta.color_at_index(1).b == 165);

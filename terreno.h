@@ -2,6 +2,8 @@
 #define TERRENO_H
 
 #include <string>
+#include "paleta.h"
+#include "imagem.h"
 
 float valorAleatorio();
 
@@ -21,11 +23,13 @@ public:
     void gerarMapa(float fatorRugosidade);
 
     float obterAltitude(int x, int y);
+    float obterAltitude(int i);
     int obterQuantidadeLinhas();
     int obterQuantidadeColunas();
 
     bool salvarArquivo(const std::string& caminho);
     bool lerArquivo(const std::string& caminho);
+    Imagem obterImagem(Paleta paleta, float fatorSombreamento);
 };
 
 #endif

@@ -5,10 +5,10 @@
 TEST_CASE("Testa se o mapa salvo em arquivo corresponde ao gerado") {
     Terreno terrain(5);
     terrain.gerarMapa(0);
-    terrain.salvarArquivo("data/terrenoteste");
+    terrain.salvarArquivo("data/terrenos/terrenoteste");
 
     Terreno terrain1(5);
-    terrain1.lerArquivo("data/terrenoteste");
+    terrain1.lerArquivo("data/terrenos/terrenoteste");
 
     // Verifica se as dimensões são iguais
     CHECK(terrain1.obterQuantidadeLinhas() == terrain.obterQuantidadeLinhas());

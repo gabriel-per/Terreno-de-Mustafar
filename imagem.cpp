@@ -24,6 +24,10 @@ Pixel& Imagem::obterPixel(int x, int y) {
     return matriz[x + y * largura];
 }
 
+Pixel& Imagem::obterPixel(int i) {
+    return matriz[i];
+}
+
 const Pixel& Imagem::obterPixel(int x, int y) const {
     return matriz[x + y * largura];
 }
@@ -33,6 +37,13 @@ int Imagem::obterAltura() { return altura; }
 
 void Imagem::definirPixel(int x, int y, unsigned char R, unsigned char G, unsigned char B) {
     Pixel& pixel = matriz[x + y * largura];
+    pixel.r = R;
+    pixel.g = G;
+    pixel.b = B;
+}
+
+void Imagem::definirPixel(int i, unsigned char R, unsigned char G, unsigned char B) {
+    Pixel& pixel = matriz[i];
     pixel.r = R;
     pixel.g = G;
     pixel.b = B;

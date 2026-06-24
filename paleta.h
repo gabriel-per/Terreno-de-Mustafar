@@ -1,3 +1,6 @@
+#ifndef PALETA_H
+#define PALETA_H
+
 #include <vector>
 #include <fstream>
 #include <string>
@@ -31,3 +34,6 @@ class Paleta {
         }
 
 };
+
+
+#endif

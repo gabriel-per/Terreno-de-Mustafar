@@ -1,6 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include "terreno.h"
+#include "imagem.h"
+
 using namespace std;
 
 // TODO: 
@@ -38,7 +40,7 @@ void Terreno::gerarMapa(float fatorRugosidade) {
     int passo = dimMinus/2;
     float rugosidade = fatorRugosidade;
     while (passo >= 1) {
-        cout << passo << endl;
+        // cout << passo << endl;
 
         for (int y=passo; y<dimMinus; y+=passo*2) {
             for (int x=passo; x<dimMinus; x+=passo*2) {
@@ -65,6 +67,7 @@ void Terreno::gerarMapa(float fatorRugosidade) {
 }
 
 float Terreno::obterAltitude(int x, int y) {return matriz[y*dim+x];}
+float Terreno::obterAltitude(int i) {return matriz[i];}
 int Terreno::obterQuantidadeLinhas() {return dim;}
 int Terreno::obterQuantidadeColunas() {return dim;}
 
@@ -85,7 +88,6 @@ void Terreno::mediaSquare(int x, int y, int passo, float offset) {
     float sum, count;
     sum = count = 0;
 
-    
 
     for (int xo=-passo; xo<=passo; xo+=passo*2) {
         if (coordenadaValida(x+xo, y)){
@@ -152,4 +154,31 @@ bool Terreno::lerArquivo(const string& caminho) {
     return true;
 }
 
+Imagem Terreno::obterImagem(Paleta paleta, float fatorSombreamento) {
 
+    float minValor=matriz[0], maxValor=matriz[0], intervalo;
+    for (int i=0; i<dim*dim; i++) {
+        if (matriz[i] > maxValor) {maxValor = matriz[i];}
+        if (matriz[i] < minValor) {minValor = matriz[i];}
+    }
+    intervalo = maxValor-minValor;
+
+    Imagem imagem{dim, dim};
+
+    int numeroDeCores = paleta.how_many_colors();
+    for (int i=0; i<dim*dim; i++) {
+        float normal = (matriz[i] - minValor)/(intervalo);
+        int indice = normal * numeroDeCores;
+        Pixel cor = paleta.color_at_index(min(indice, numeroDeCores-1));
+        imagem.definirPixel(i, cor.r, cor.g, cor.b);
+        // if (i > dim and matriz[i-dim-1] > matriz[i]) {
+        //     imagem.definirPixel(i, cor.r*fatorSombreamento, cor.g*fatorSombreamento, cor.b*fatorSombreamento);
+        // if (i > dim and matriz[i-dim-1] > matriz[i]) {
+        //     imagem.definirPixel(i, cor.r*fatorSombreamento, cor.g*fatorSombreamento, cor.b*fatorSombreamento);
+        // } else {
+        //     imagem.definirPixel(i, cor.r, cor.g, cor.b);
+        // }
+    }
+
+    return imagem;
+}
