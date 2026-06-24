@@ -42,3 +42,5 @@ TEST_CASE("Testa se as altitudes estão dentro do intervalo esperado") {
         }
     }
 }
+
+
