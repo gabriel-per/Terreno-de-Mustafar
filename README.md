@@ -24,4 +24,4 @@ Na semana passada, Vader nos ligou para dizer que decidiu decorar os corredores 
 
 | Método Vizinho NW | Método Vizinhos Adjacentes | Método Gradiente |
 | ----------------- | -------------------------- | ---------------- |
-| ![[1.png]]        | ![[2.png]]                 | ![[3.png]]       |
+| ![Baixa](showcase/1.png)       | ![Baixa](showcase/2.png)      | ![Baixa](showcase/3.png)  |
