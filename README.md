@@ -4,7 +4,7 @@ Este projeto usa o algoritmo Diamond-Square para criar mapas de altitude, mapeia
 
 ---
 ## Backstory real
-Na semana passada, Vader nos ligou para dizer que decidiu decorar os corredores vazios de sua fortaleza com fotografias do terreno de Mustafar. Contudo, a atmosfera nublada do planeta não permitiria tirarmos fotografias satelitais muito limpas. Claro, nós também não queríamos decepcionar Lord Vader (por razões óbvias), então pensamemos em uma alternativaa: Usar imagens geradas artificialmente. Eu honestamente não acho que ele terá alguma desconfiança.
+Na semana passada, Vader nos ligou para dizer que decidiu decorar os corredores vazios de sua fortaleza com fotografias do terreno de Mustafar. Contudo, a atmosfera nublada e repleta de fuligem do planeta não nos permitiria tirar fotografias satelitais muito limpas. Claro, nós não queríamos decepcionar Lord Vader (por razões óbvias), então pensamos em uma alternativa: usar imagens geradas artificialmente. Eu honestamente não acho que ele vai desconfiar de algo.
 
 ---
 ![Terreno de Mustafar](showcase/6.png)
