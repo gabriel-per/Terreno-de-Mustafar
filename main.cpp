@@ -2,7 +2,6 @@
 #include "sombreamento.h"
 #include <string>
 #include <iostream>
-#include <cmath>
 
 constexpr float RUGOSIDADE = 0.56f;
 constexpr float FATOR_SOMBREAMENTO = 0.7f;
@@ -16,7 +15,7 @@ struct Config {
     float escalaSombra = 5.0f;
     string paleta = "data/paletas/palette6.txt";
     string saida = "data/imagens/output.ppm";
-    int metodoSombra = 1; // 0 = vizinhos top left, 1 = vizinhos adjacentes, 2 = gradiente
+    int metodoSombra = 0; // 0 = vizinhos top left, 1 = vizinhos adjacentes, 2 = gradiente
 };
 
 void mostrarMenu(Config& cfg) {
@@ -40,7 +39,7 @@ char esperarEscolha() {
 }
 
 void gerarTerreno(const Config& cfg) {
-    srand(time(NULL));
+    // srand(time(NULL));
     int dim = (1 << cfg.expoente) + 1;
 
     cout << "\nGerando terreno " << dim << "x" << dim << "..." << endl;
@@ -124,33 +123,3 @@ int main() {
     return 0;
 }
 
-
-
-// int main1() {
-//     srand(time(NULL));
-//     string caminhoPaleta = "data/palette6.txt";
-//     string caminhoImagemSaida = "data/img.ppm";
-//     int expoente = 10;
-
-//     cout << "Informe o nome do arquivo com a paleta de cores: " << endl;
-//     cin >> caminhoPaleta;
-//     cout << "Informe o expoente para gerar a dimensão do mapa: " << endl;
-//     cin >> expoente;
-//     cout << "Informe o caminho do arquivo imagem de saída: " << endl;
-
-//     cin >> caminhoImagemSaida;
-
-//     // cout << caminhoPaleta << expoente << caminhoImagemSaida << endl;
-//     // cout << (int)(pow(2, expoente)) << endl;
-
-
-//     // Terreno terreno{513};
-//     Terreno terreno{(int)(pow(2, expoente))+1};
-//     Paleta paleta{caminhoPaleta};
-//     terreno.gerarMapa(RUGOSIDADE);
-//     Imagem imagem = terreno.obterImagem(paleta, FATOR_SOMBREAMENTO);
-
-//     sombreamento(terreno, imagem);
-
-//     imagem.salvarPPM(caminhoImagemSaida);
-// }

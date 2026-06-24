@@ -1,0 +1,21 @@
+## Comandos Linux
+TESTES:
+clear && g++ imagem.cpp paleta.cpp sombreamento.cpp terreno.cpp tests/geracao_imagem_testes.cpp -o build/geracao_imagem_testes && ./build/geracao_imagem_testes
+clear && g++ imagem.cpp paleta.cpp sombreamento.cpp terreno.cpp tests/imagem_testes.cpp -o build/imagem_testes && ./build/imagem_testes
+clear && g++ imagem.cpp paleta.cpp sombreamento.cpp terreno.cpp tests/paleta_testes.cpp -o build/paleta_testes && ./build/paleta_testes
+clear && g++ imagem.cpp paleta.cpp sombreamento.cpp terreno.cpp tests/terreno_testes.cpp -o build/terreno_testes && ./build/terreno_testes
+
+BUILD:
+g++ -o build/main.exe main.cpp terreno.cpp imagem.cpp paleta.cpp sombreamento.cpp
+g++ imagem.cpp paleta.cpp sombreamento.cpp terreno.cpp main.cpp -o build/main && ./build/main
+
+## Comandos Windows
+
+TESTES:
+g++ imagem.cpp paleta.cpp sombreamento.cpp terreno.cpp tests/geracao_imagem_testes.cpp -o build/geracao_imagem_testes.exe
+g++ imagem.cpp paleta.cpp sombreamento.cpp terreno.cpp tests/imagem_testes.cpp -o build/imagem_testes.exe
+g++ imagem.cpp paleta.cpp sombreamento.cpp terreno.cpp tests/paleta_testes.cpp -o build/paleta_testes.exe
+g++ imagem.cpp paleta.cpp sombreamento.cpp terreno.cpp tests/terreno_testes.cpp -o build/terreno_testes.exe
+
+BUILD:
+g++ -o build/main.exe main.cpp terreno.cpp imagem.cpp paleta.cpp sombreamento.cpp
